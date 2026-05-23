@@ -1,16 +1,13 @@
 [build]
   command = "npm run build"
-  functions = "functions"
-  publish = ".next"
+  publish = ".netlify/output/public"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
 
 [build.environment]
   NODE_VERSION = "18"
   NPM_VERSION = "9"
-
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
 
 [dev]
   command = "npm run dev"
