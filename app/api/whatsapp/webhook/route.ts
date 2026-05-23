@@ -49,11 +49,11 @@ async function generateAIResponse(userMessage: string, lang: string): Promise<st
   // Contact/Hours inquiry
   if (lower.includes('contact') || lower.includes('call') || lower.includes('hour') || lower.includes('phone')) {
     const responses: Record<string, string> = {
-      en: 'Contact us: +387 62 588 8521, +387 60 303 5173, or +387 60 30 35 173. Email: nhmaster.bih@gmail.com',
-      bs: 'Kontaktirajte nas: +387 62 588 8521, +387 60 303 5173 ili nhmaster.bih@gmail.com',
-      de: 'Kontaktieren Sie uns: +387 62 588 8521 oder nhmaster.bih@gmail.com',
-      tr: 'Bize ulaşın: +387 62 588 8521 veya nhmaster.bih@gmail.com',
-      ar: 'اتصل بنا: +387 62 588 8521 أو nhmaster.bih@gmail.com',
+      en: 'Contact us: +387 62 588 821, +387 60 303 5173, or +387 60 30 35 173. Email: nhmaster.bih@gmail.com',
+      bs: 'Kontaktirajte nas: +387 62 588 821, +387 60 303 5173 ili nhmaster.bih@gmail.com',
+      de: 'Kontaktieren Sie uns: +387 62 588 821 oder nhmaster.bih@gmail.com',
+      tr: 'Bize ulaşın: +387 62 588 821 veya nhmaster.bih@gmail.com',
+      ar: 'اتصل بنا: +387 62 588 821 أو nhmaster.bih@gmail.com',
     }
     return responses[lang] || responses.en
   }

@@ -130,8 +130,8 @@ npm run start
 ## 📞 Contact
 
 - **Email:** nhmaster.bih@gmail.com
-- **Phone:** +387 62 588 8521
-- **WhatsApp:** +387 62 588 8521
+- **Phone:** +387 62 588 821
+- **WhatsApp:** +387 62 588 821
 
 ## 📄 License
 
