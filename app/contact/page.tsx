@@ -117,8 +117,8 @@ export default function ContactPage() {
                   <div>
                     <h3 className="font-semibold text-foreground">{t.contact.phone}</h3>
                     <p className="mt-1 text-muted-foreground">
-                      <a href="tel:+38762588821" className="hover:text-accent transition-colors">
-                        +387 62 588 821
+                      <a href="tel:+387625888521" className="hover:text-accent transition-colors">
+                        +387 62 588 8521
                       </a>
                     </p>
                     <p className="text-muted-foreground">
@@ -148,7 +148,7 @@ export default function ContactPage() {
 
               {/* WhatsApp Button */}
               <a
-                href="https://wa.me/38762588821"
+                href="https://wa.me/387625888521"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-10 inline-flex items-center gap-3 px-6 py-3 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-lg transition-colors"
