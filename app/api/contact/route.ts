@@ -101,7 +101,7 @@ async function sendWhatsAppMessage(to: string, text: string): Promise<boolean> {
 async function sendEmail(to: string, subject: string, text: string, html?: string): Promise<boolean> {
   const SENDGRID_API_KEY = process.env.SENDGRID_API_KEY
   if (!SENDGRID_API_KEY) {
-    console.log('SendGrid API key not configured; email would be:', { to, subject, text })
+    console.error('SendGrid API key not configured. Set SENDGRID_API_KEY in environment variables.')
     return false
   }
 
@@ -124,7 +124,14 @@ async function sendEmail(to: string, subject: string, text: string, html?: strin
       },
       body: JSON.stringify(payload),
     })
-    return res.ok
+
+    if (!res.ok) {
+      const textResponse = await res.text()
+      console.error('SendGrid response error', res.status, textResponse)
+      return false
+    }
+
+    return true
   } catch (err) {
     console.error('SendGrid error', err)
     return false
@@ -141,7 +148,14 @@ export async function POST(req: NextRequest) {
     const html = `<p>${text.replace(/\n/g, '<br/>')}</p>`
 
     // Send email to nhmaster
-    await sendEmail('nhmaster.bih@gmail.com', subject, text, html)
+    const emailSent = await sendEmail('nhmaster.bih@gmail.com', subject, text, html)
+    if (!emailSent) {
+      console.error('Contact form email failed. Please verify SENDGRID_API_KEY and SendGrid configuration.')
+      return NextResponse.json(
+        { success: false, error: 'Email delivery failed. Please try again later.' },
+        { status: 500 }
+      )
+    }
 
     // If staff not available, use AI fallback to craft and send a WhatsApp reply (if phone provided)
     const staffAvailable = process.env.STAFF_AVAILABLE === 'true'
